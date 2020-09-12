@@ -1,4 +1,14 @@
-package org.openmined.syft.demo.federated.ui
+package org.openmined.syft.domain
+
+interface SyftLogger {
+    fun postData(result: Float)
+
+    fun postEpoch(epoch: Int)
+
+    fun postLog(message: String)
+
+    fun postState(status: ContentState)
+}
 
 sealed class ContentState {
     companion object {
@@ -24,4 +34,4 @@ sealed class ContentState {
     }
 }
 
-data class ProcessData(internal val data: List<Float>)
+data class ProcessData(val data: List<Float>)
